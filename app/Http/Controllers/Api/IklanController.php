@@ -65,14 +65,38 @@ class IklanController extends Controller
     public function detailIklan(Request $request)
     {
         $model = Iklan::with(['kategori','gambar_iklan','user'])->where('id',$request->id_iklan)->first();
+        $model->dilihat+=1;
+        $model->save();
+        $model->memberSejak = date('M d, Y',strtotime($model->user->created_at));
+        $model->dipasang = date('M d, Y',strtotime($model->created_at));
 
         return response()->json(['status'=>1,'data'=>$model]);
+    }
+
+    public function addDihubungi(Request $request)
+    {
+        $model = Iklan::find($request->id_iklan);
+        $model->dihubungi+=1;
+        $model->save();
+    }
+
+    public function searchIklan(Request $request)
+    {
+        $model = Iklan::with(['kategori','gambar_iklan','user'])->whereRaw(\DB::raw("judul like '%$request->keyword%' AND status=2"))->orderBy('id','desc')->get();
+
+        return response()->json(['status'=>1,'data'=>$model,'count'=>$model->count()]);
+    }
+
+    public function getDetailKategori(Request $request)
+    {
+        $model = Iklan::with(['kategori','gambar_iklan','user'])->whereRaw(\DB::raw("category_id=$request->id_kategori AND status=2"))->orderBy('id','desc')->get();
+
+        return response()->json(['status'=>1,'data'=>$model,'count'=>$model->count()]);
     }
 
     public function deleteIklan(Request $request){
         $model = Iklan::find($request->iklan_id);
         $model->delete();
-
 
     }
 }

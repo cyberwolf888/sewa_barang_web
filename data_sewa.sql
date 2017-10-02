@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Sep 2017 pada 05.29
+-- Generation Time: 02 Okt 2017 pada 10.47
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -79,6 +79,8 @@ CREATE TABLE `iklan` (
   `harga` float NOT NULL,
   `satuan` varchar(50) NOT NULL,
   `status` int(1) NOT NULL,
+  `dilihat` int(11) NOT NULL DEFAULT '0',
+  `dihubungi` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -87,9 +89,9 @@ CREATE TABLE `iklan` (
 -- Dumping data untuk tabel `iklan`
 --
 
-INSERT INTO `iklan` (`id`, `user_id`, `category_id`, `judul`, `deskripsi`, `harga`, `satuan`, `status`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, 'Kamera keren', 'kamera paling ampuh', 150000, 'Hari', 2, '2017-09-27 21:25:54', '2017-09-28 20:58:11'),
-(2, 3, 1, 'Laptop keren', 'Laptop paling kencang yang pernah ada', 500000, 'Hari', 2, '2017-09-28 21:36:36', '2017-09-28 21:36:36');
+INSERT INTO `iklan` (`id`, `user_id`, `category_id`, `judul`, `deskripsi`, `harga`, `satuan`, `status`, `dilihat`, `dihubungi`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, 'Kamera keren', 'kamera paling ampuh', 150000, 'Hari', 2, 21, 5, '2017-09-27 21:25:54', '2017-10-02 00:46:06'),
+(2, 3, 1, 'Laptop keren', 'Laptop paling kencang yang pernah ada', 500000, 'Hari', 2, 3, 1, '2017-09-28 21:36:36', '2017-10-02 00:06:56');
 
 -- --------------------------------------------------------
 
@@ -151,7 +153,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `phone`, `address`, `img`, `email`, `password`, `remember_token`, `isActive`, `type`, `created_at`, `updated_at`) VALUES
 (1, 'Administrator', '085737353569', 'Jalan Nangka utara', '9c3afc643d0a8c3e3031ea0045677dc8.jpg', 'admin@mail.com', '$2y$10$Iz8NCck3FBi/5yWfBEOSyu5E6wQ8Nol0fGz1pv3wR4RB4FSDmNGo2', 'yUkAE6NE8CthDexngDaSIGEv5Q9HXdxRakcdRJY97GfTSzDwxICJ4Sl9pjxS', 1, 1, '2017-09-25 01:02:51', '2017-09-25 20:43:57'),
 (2, 'test', '82247464196', 'Jalan Wisnu Marga Belayu No 19', '', 'test@mail.com', '$2y$10$LcY37tduqESuda0MOZawKOUOvKMAAN4d1L0jaI1x3RJ8Dn6hyQgYi', NULL, 0, 1, '2017-09-25 20:23:33', '2017-09-25 20:33:03'),
-(3, 'Coba Member', '85737353569', 'Jalan raya niti mandala renon', '2a3d8d086d177c17389c5a8bbf74cec9.jpg', 'member@mail.com', '$2y$10$O3PusdAqP0qvMXqHQKoSeO/boWfM406Wg1/8xbYMaeCEiisaiqpti', NULL, 1, 2, '2017-09-25 20:37:25', '2017-09-26 23:56:30'),
+(3, 'Coba Member', '85737353569', 'Jalan Nangka Utara', '2a3d8d086d177c17389c5a8bbf74cec9.jpg', 'member@mail.com', '$2y$10$O3PusdAqP0qvMXqHQKoSeO/boWfM406Wg1/8xbYMaeCEiisaiqpti', NULL, 1, 2, '2017-09-25 20:37:25', '2017-09-26 23:56:30'),
 (4, 'testhsh', '085734694', 'Jalan Asd', '', 'testasd@mail.com', '$2y$10$O3PusdAqP0qvMXqHQKoSeO/boWfM406Wg1/8xbYMaeCEiisaiqpti', NULL, 1, 2, '2017-09-26 05:57:59', '2017-09-26 05:57:59');
 
 --

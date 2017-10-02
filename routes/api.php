@@ -25,3 +25,6 @@ Route::post('/getIklan', 'Api\IklanController@getIklan')->name('getIklan');
 Route::post('/saveGambarIklan', 'Api\IklanController@saveGambarIklan')->name('saveGambarIklan');
 Route::post('/deleteIklan', 'Api\IklanController@deleteIklan')->name('deleteIklan');
 Route::post('/detailIklan', 'Api\IklanController@detailIklan')->name('detailIklan');
+Route::post('/addDihubungi', 'Api\IklanController@addDihubungi')->name('addDihubungi');
+Route::post('/searchIklan', 'Api\IklanController@searchIklan')->name('searchIklan');
+Route::post('/getDetailKategori', 'Api\IklanController@getDetailKategori')->name('getDetailKategori');
