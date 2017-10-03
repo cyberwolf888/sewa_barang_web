@@ -28,3 +28,6 @@ Route::post('/detailIklan', 'Api\IklanController@detailIklan')->name('detailIkla
 Route::post('/addDihubungi', 'Api\IklanController@addDihubungi')->name('addDihubungi');
 Route::post('/searchIklan', 'Api\IklanController@searchIklan')->name('searchIklan');
 Route::post('/getDetailKategori', 'Api\IklanController@getDetailKategori')->name('getDetailKategori');
+Route::post('/deleteIklan', 'Api\IklanController@deleteIklan')->name('deleteIklan');
+Route::post('/deleteImg', 'Api\IklanController@deleteImg')->name('deleteImg');
+Route::post('/updateIklan', 'Api\IklanController@updateIklan')->name('updateIklan');

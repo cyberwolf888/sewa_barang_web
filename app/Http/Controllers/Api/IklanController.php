@@ -98,5 +98,53 @@ class IklanController extends Controller
         $model = Iklan::find($request->iklan_id);
         $model->delete();
 
+        $imgs = GambarIklan::where('iklan_id',$request->iklan_id)->get();
+        foreach ($imgs as $row){
+            $path = base_path('assets/img/iklan/'.$request->iklan_id."/");
+            if(is_file($path.$row->img)){
+                unlink($path.$row->img);
+            }
+            $row->delete();
+        }
+        rmdir(base_path('assets/img/iklan/'.$request->iklan_id));
+    }
+
+    public function deleteImg(Request $request){
+        $model = GambarIklan::find($request->id);
+        $path = base_path('assets/img/iklan/'.$model->iklan_id."/");
+        if(is_file($path.$model->img)){
+            unlink($path.$model->img);
+        }
+        $model->delete();
+    }
+
+    public function updateIklan(Request $request){
+        //print_r($request->all());
+        $iklan = Iklan::find($request->id);
+        if($request->has('UploadForm')){
+            foreach ($request->UploadForm as $img){
+                //print_r($img);
+                $model = new GambarIklan();
+                $path = base_path('assets/img/iklan/'.$iklan->id.'/');
+                if(!\File::exists($path)) {
+                    \File::makeDirectory($path, $mode = 0777, true, true);
+                }
+                $file = \Image::make($img)->resize(500, 300)->encode('jpg', 80)->save($path.md5(str_random(12)).'.jpg');
+                $model->img = $file->basename;
+                $model->iklan_id = $iklan->id;
+                $model->save();
+            }
+        }
+        if(GambarIklan::where('iklan_id',$iklan->id)->count()==0){
+            return "Gambar iklan tidak boleh kosong!";
+        }else{
+            $iklan->judul = $request->judul;
+            $iklan->category_id = $request->category_id;
+            $iklan->harga = $request->harga;
+            $iklan->satuan = $request->satuan;
+            $iklan->deskripsi = $request->deskripsi;
+            $iklan->save();
+        }
+
     }
 }

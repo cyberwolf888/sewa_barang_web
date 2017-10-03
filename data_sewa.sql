@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 02 Okt 2017 pada 10.47
+-- Generation Time: 03 Okt 2017 pada 09.34
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -61,8 +61,7 @@ CREATE TABLE `gambar_iklan` (
 INSERT INTO `gambar_iklan` (`id`, `iklan_id`, `img`, `created_at`, `updated_at`) VALUES
 (1, 1, '241456319a74e72b8c49326d4fd4d7c5.jpg', '2017-09-27 21:26:52', '2017-09-27 21:26:52'),
 (2, 1, '997cc423b5d1b807f6cd3dd59945eb52.jpg', '2017-09-27 21:26:53', '2017-09-27 21:26:53'),
-(3, 1, '86004764e64565610699e40252779756.jpg', '2017-09-27 21:26:53', '2017-09-27 21:26:53'),
-(4, 2, '8984d1acaf7fa66dd8f588eac404a977.jpg', '2017-09-28 21:36:50', '2017-09-28 21:36:50');
+(18, 1, 'c314634ef53c85f98522a88b9008cc4b.jpg', '2017-10-02 23:33:44', '2017-10-02 23:33:44');
 
 -- --------------------------------------------------------
 
@@ -90,8 +89,7 @@ CREATE TABLE `iklan` (
 --
 
 INSERT INTO `iklan` (`id`, `user_id`, `category_id`, `judul`, `deskripsi`, `harga`, `satuan`, `status`, `dilihat`, `dihubungi`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, 'Kamera keren', 'kamera paling ampuh', 150000, 'Hari', 2, 21, 5, '2017-09-27 21:25:54', '2017-10-02 00:46:06'),
-(2, 3, 1, 'Laptop keren', 'Laptop paling kencang yang pernah ada', 500000, 'Hari', 2, 3, 1, '2017-09-28 21:36:36', '2017-10-02 00:06:56');
+(1, 3, 1, 'Kamera keren', 'kamera paling ampuh', 150000, 'Hari', 2, 48, 5, '2017-09-27 21:25:54', '2017-10-02 23:33:50');
 
 -- --------------------------------------------------------
 
@@ -210,12 +208,12 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `gambar_iklan`
 --
 ALTER TABLE `gambar_iklan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `iklan`
 --
 ALTER TABLE `iklan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
