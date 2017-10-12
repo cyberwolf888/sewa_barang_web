@@ -27,9 +27,5 @@ class HomeController extends Controller
         if(Auth::user()->can('admin-access')) {
             return redirect()->intended('/admin');
         }
-
-        if(Auth::user()->can('member-access')) {
-            return redirect()->intended('/member');
-        }
     }
 }

@@ -44,7 +44,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{{ url('/admin') }}">
-                <img src="{{ url('assets') }}/backend/layouts/layout4/img/logo-small.png" alt="logo" class="" style="margin-top: 3px;width: 69px;"/> </a>
+                <img src="{{ url('assets') }}/backend/global/img/logo.png" alt="logo" class="" style="margin-top: 10px;width: 200px;"/> </a>
             <div class="menu-toggler sidebar-toggler" >
                 <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
             </div>
