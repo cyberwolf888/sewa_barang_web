@@ -106,8 +106,14 @@
                             <label for="password_confirmation">Password Confirmation</label>
                         </div>
 
+                        <?php
+                               $options = ['id'=>'status','placeholder'=>'','class'=>'form-control', 'required'];
+                               if(isset($update) && $model->id == Auth::user()->id){
+                                   $options = ['id'=>'status','placeholder'=>'','class'=>'form-control', 'required','disabled'];
+                               }
+                            ?>
                         <div class="form-group form-md-line-input {{ $errors->has('status') ? ' has-error' : '' }}">
-                            {!! Form::select('status', ['1'=>'Aktif','0'=>'Tidak Aktif'], $model->isActive,['id'=>'status','placeholder'=>'','class'=>'form-control', 'required']) !!}
+                            {!! Form::select('status', ['1'=>'Aktif','0'=>'Tidak Aktif'], $model->isActive,$options) !!}
                             <label for="status">Status</label>
                         </div>
 

@@ -74,7 +74,6 @@ class UserController extends Controller
             'name' => 'required',
             'phone' => 'required|max:12|alpha_num',
             'address' => 'required',
-            'status' => 'required|max:1|alpha_num',
             'image' => 'image|max:3500'
         ];
 
@@ -104,7 +103,9 @@ class UserController extends Controller
         $model->phone = $request->phone;
         $model->address = $request->address;
         $model->email = $request->email;
-        $model->isActive = $request->status;
+        if($request->has('status')){
+            $model->isActive = $request->status;
+        }
         $model->save();
 
         return redirect()->route('admin.user.admin.manage');
