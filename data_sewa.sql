@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 03 Okt 2017 pada 09.34
+-- Generation Time: 10 Jan 2018 pada 06.54
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -76,6 +76,7 @@ CREATE TABLE `iklan` (
   `judul` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
   `harga` float NOT NULL,
+  `stock` int(11) NOT NULL DEFAULT '0',
   `satuan` varchar(50) NOT NULL,
   `status` int(1) NOT NULL,
   `dilihat` int(11) NOT NULL DEFAULT '0',
@@ -88,8 +89,8 @@ CREATE TABLE `iklan` (
 -- Dumping data untuk tabel `iklan`
 --
 
-INSERT INTO `iklan` (`id`, `user_id`, `category_id`, `judul`, `deskripsi`, `harga`, `satuan`, `status`, `dilihat`, `dihubungi`, `created_at`, `updated_at`) VALUES
-(1, 3, 1, 'Kamera keren', 'kamera paling ampuh', 150000, 'Hari', 2, 48, 5, '2017-09-27 21:25:54', '2017-10-02 23:33:50');
+INSERT INTO `iklan` (`id`, `user_id`, `category_id`, `judul`, `deskripsi`, `harga`, `stock`, `satuan`, `status`, `dilihat`, `dihubungi`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, 'Kamera keren', 'kamera paling ampuh', 150000, 10, 'Hari', 2, 57, 5, '2017-09-27 21:25:54', '2018-01-09 21:53:01');
 
 -- --------------------------------------------------------
 
@@ -149,9 +150,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `phone`, `address`, `img`, `email`, `password`, `remember_token`, `isActive`, `type`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', '085737353569', 'Jalan Nangka utara', '9c3afc643d0a8c3e3031ea0045677dc8.jpg', 'admin@mail.com', '$2y$10$Iz8NCck3FBi/5yWfBEOSyu5E6wQ8Nol0fGz1pv3wR4RB4FSDmNGo2', 'yUkAE6NE8CthDexngDaSIGEv5Q9HXdxRakcdRJY97GfTSzDwxICJ4Sl9pjxS', 1, 1, '2017-09-25 01:02:51', '2017-09-25 20:43:57'),
-(2, 'test', '82247464196', 'Jalan Wisnu Marga Belayu No 19', '', 'test@mail.com', '$2y$10$LcY37tduqESuda0MOZawKOUOvKMAAN4d1L0jaI1x3RJ8Dn6hyQgYi', NULL, 0, 1, '2017-09-25 20:23:33', '2017-09-25 20:33:03'),
-(3, 'Coba Member', '85737353569', 'Jalan Nangka Utara', '2a3d8d086d177c17389c5a8bbf74cec9.jpg', 'member@mail.com', '$2y$10$O3PusdAqP0qvMXqHQKoSeO/boWfM406Wg1/8xbYMaeCEiisaiqpti', NULL, 1, 2, '2017-09-25 20:37:25', '2017-09-26 23:56:30'),
+(1, 'Administrator', '085737353569', 'Jalan Nangka utara', '9c3afc643d0a8c3e3031ea0045677dc8.jpg', 'admin@mail.com', '$2y$10$Iz8NCck3FBi/5yWfBEOSyu5E6wQ8Nol0fGz1pv3wR4RB4FSDmNGo2', 'DAac7KeqCEYibyOSYyexKdI3uaUJrpg1sUbloPCXwWTXGImQ8PugwVHBvdcZ', 1, 1, '2017-09-25 01:02:51', '2017-12-27 07:37:29'),
+(2, 'test', '82247464196', 'Jalan Wisnu Marga Belayu No 19', '', 'test@mail.com', '$2y$10$LcY37tduqESuda0MOZawKOUOvKMAAN4d1L0jaI1x3RJ8Dn6hyQgYi', NULL, 1, 1, '2017-09-25 20:23:33', '2017-12-27 07:37:37'),
+(3, 'Coba Member', '85737353569', 'Jalan Nangka Utara', '2a3d8d086d177c17389c5a8bbf74cec9.jpg', 'member@mail.com', '$2y$10$O3PusdAqP0qvMXqHQKoSeO/boWfM406Wg1/8xbYMaeCEiisaiqpti', NULL, 1, 2, '2018-01-09 19:00:22', '2018-01-09 19:00:22'),
 (4, 'testhsh', '085734694', 'Jalan Asd', '', 'testasd@mail.com', '$2y$10$O3PusdAqP0qvMXqHQKoSeO/boWfM406Wg1/8xbYMaeCEiisaiqpti', NULL, 1, 2, '2017-09-26 05:57:59', '2017-09-26 05:57:59');
 
 --
@@ -213,7 +214,7 @@ ALTER TABLE `gambar_iklan`
 -- AUTO_INCREMENT for table `iklan`
 --
 ALTER TABLE `iklan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `migrations`
 --

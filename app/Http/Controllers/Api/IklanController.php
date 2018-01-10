@@ -38,6 +38,7 @@ class IklanController extends Controller
         $model->judul = $request->judul;
         $model->deskripsi = $request->deskripsi;
         $model->harga = $request->harga;
+        $model->stock = $request->stock;
         $model->satuan = $request->satuan;
         $model->status = 1;
         $model->save();
@@ -69,6 +70,7 @@ class IklanController extends Controller
         $model->save();
         $model->memberSejak = date('M d, Y',strtotime($model->user->created_at));
         $model->dipasang = date('M d, Y',strtotime($model->created_at));
+        $model->lastLogin = $model->user->updated_at->diffForHumans();
 
         return response()->json(['status'=>1,'data'=>$model]);
     }
@@ -141,6 +143,7 @@ class IklanController extends Controller
             $iklan->judul = $request->judul;
             $iklan->category_id = $request->category_id;
             $iklan->harga = $request->harga;
+            $iklan->stock = $request->stock;
             $iklan->satuan = $request->satuan;
             $iklan->deskripsi = $request->deskripsi;
             $iklan->save();

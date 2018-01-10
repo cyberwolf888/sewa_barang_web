@@ -14,6 +14,8 @@ class UserController extends Controller
     {
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'type'=>2, 'isActive'=>1])){
             $model = Auth::user();
+            $model->created_at = date('Y-m-d H:i:s');
+            $model->save();
             return response()->json(['status'=>1,'data'=>$model->toArray()]);
         }else{
             return response()->json(['status'=>0]);
