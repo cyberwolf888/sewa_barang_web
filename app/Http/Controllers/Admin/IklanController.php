@@ -37,4 +37,11 @@ class IklanController extends Controller
 
         return redirect()->back();
     }
+
+    public function delete($id)
+    {
+        $model = Iklan::find($id);
+        $model->delete();
+        return redirect()->back();
+    }
 }

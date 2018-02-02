@@ -103,6 +103,9 @@
                                     <td> {{ date('d F Y',strtotime($row->created_at)) }}</td>
                                     <td class="center" width="100">
                                         <a href="{{ route('admin.iklan.detail',$row->id) }}" class="btn blue btn-xs"><i class="fa fa-eye"></i></a>
+                                        @if($row->status == 0)
+                                        <a href="{{ route('admin.iklan.delete',$row->id) }}" class="btn red btn-xs"><i class="fa fa-trash"></i></a>
+                                        @endif
                                     </td>
                                 </tr>
                                 <?php $no++ ?>

@@ -110,6 +110,9 @@
                                     <td> {{ $row->getStatus() }}</td>
                                     <td class="center" width="100">
                                         <a href="{{ route('admin.user.member.edit',$row->id) }}" class="btn yellow-saffron btn-xs"><i class="fa fa-pencil"></i></a>
+                                        @if($row->isActive == 0)
+                                            <a href="{{ route('admin.user.member.delete',$row->id) }}" class="btn red btn-xs"><i class="fa fa-trash"></i></a>
+                                        @endif
                                     </td>
                                 </tr>
                                 <?php $no++ ?>

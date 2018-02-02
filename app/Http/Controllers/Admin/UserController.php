@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Iklan;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -220,6 +221,10 @@ class UserController extends Controller
 
     public function destroy_member($id)
     {
-        //
+        $model = User::find($id);
+        Iklan::where('user_id',$id)->delete();
+        $model->delete();
+
+        return redirect()->back();
     }
 }

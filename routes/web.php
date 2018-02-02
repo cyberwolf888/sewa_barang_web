@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin-access'],
         Route::get('/detail/{id}', 'Admin\IklanController@show')->name('.detail');
         Route::get('/enable/{id}', 'Admin\IklanController@enable')->name('.enable');
         Route::get('/disable/{id}', 'Admin\IklanController@disable')->name('.disable');
+        Route::get('/delete/{id}', 'Admin\IklanController@delete')->name('.delete');
     });
 
     //User
@@ -61,6 +62,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin-access'],
             Route::get('/edit/{id}', 'Admin\UserController@edit_member')->name('.edit');
             Route::post('/update/{id}', 'Admin\UserController@update_member')->name('.update');
             Route::get('/detail/{id}', 'Admin\UserController@show_member')->name('.detail');
+            Route::get('/delete/{id}', 'Admin\UserController@destroy_member')->name('.delete');
         });
     });
 
